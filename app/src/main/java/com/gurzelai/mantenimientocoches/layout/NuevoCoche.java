@@ -1,8 +1,10 @@
-package com.gurzelai.mantenimientocoches;
+package com.gurzelai.mantenimientocoches.layout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.gurzelai.mantenimientocoches.R;
 
 public class NuevoCoche extends AppCompatActivity {
 
