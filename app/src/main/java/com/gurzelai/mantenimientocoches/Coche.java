@@ -3,13 +3,12 @@ package com.gurzelai.mantenimientocoches;
 import android.media.Image;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Coche implements Serializable {
 
     Image imagenCoche;
-    Informacion informacion;
+    public Informacion informacion;
     List<Cambio> cambios;
 
     public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros) {
@@ -23,7 +22,7 @@ public class Coche implements Serializable {
         return informacion.getNombre();
     }
 
-    public class Informacion implements Serializable {
+    public static class Informacion implements Serializable {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;
 

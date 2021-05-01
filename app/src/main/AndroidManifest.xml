@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MantenimientoCoches">
         <activity
-            android:name=".MostrarCoche"
+            android:name=".layout.MostrarCoche"
             android:parentActivityName=".layout.MainActivity" />
         <activity android:name=".layout.NuevaReparacion" />
         <activity android:name=".layout.NuevoMantenimiento" />

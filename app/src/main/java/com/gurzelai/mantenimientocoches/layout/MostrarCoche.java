@@ -1,9 +1,12 @@
-package com.gurzelai.mantenimientocoches;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.gurzelai.mantenimientocoches.layout;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.gurzelai.mantenimientocoches.Coche;
+import com.gurzelai.mantenimientocoches.R;
 
 public class MostrarCoche extends AppCompatActivity {
 
@@ -20,9 +23,9 @@ public class MostrarCoche extends AppCompatActivity {
     }
 
     private void asignar() {
-        tvNombre.setText(coche.informacion.nombre);
-        tvFabricante.setText(coche.informacion.fabricante);
-        tvModelo.setText(coche.informacion.modelo);
+        tvNombre.setText(coche.informacion.getNombre());
+        tvFabricante.setText(coche.informacion.getFabricante());
+        tvModelo.setText(coche.informacion.getModelo());
         tvAnio.setText(String.valueOf(coche.informacion.getAnio()));
         tvKilometros.setText(String.valueOf(coche.informacion.getKilometros())+ " km");
     }
