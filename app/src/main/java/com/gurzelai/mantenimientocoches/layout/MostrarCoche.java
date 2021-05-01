@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class MostrarCoche extends AppCompatActivity {
     Coche coche;
     AdaptadorCambio adaptadorCambio;
     ListView lvCambios;
+    ImageView imagenCoche;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,8 @@ public class MostrarCoche extends AppCompatActivity {
         tvNombre.setText(coche.informacion.getNombre());
         tvFabricante.setText(coche.informacion.getFabricante());
         tvModelo.setText(coche.informacion.getModelo());
-        tvAnio.setText(String.valueOf(coche.informacion.getAnio()));
-        tvKilometros.setText(String.valueOf(coche.informacion.getKilometros())+ " km");
+        tvAnio.setText(String.valueOf((coche.informacion.getAnio()!=-1)? coche.informacion.getAnio() : ""));
+        tvKilometros.setText(String.valueOf((coche.informacion.getKilometros()!=-1)? coche.informacion.getKilometros() : ""));
     }
 
     private void reconocer() {
@@ -74,6 +76,7 @@ public class MostrarCoche extends AppCompatActivity {
         lvCambios = findViewById(R.id.lvCambios);
         adaptadorCambio = new AdaptadorCambio(getApplicationContext(), R.layout.list_item_cambio, coche.getListaCambios());
         lvCambios.setAdapter(adaptadorCambio);
+        imagenCoche = findViewById(R.id.imagenCoche);
     }
 
     @Override

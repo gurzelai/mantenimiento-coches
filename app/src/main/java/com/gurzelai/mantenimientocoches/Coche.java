@@ -1,6 +1,7 @@
 package com.gurzelai.mantenimientocoches;
 
-import android.media.Image;
+import android.graphics.Bitmap;
+import android.net.Uri;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import java.util.List;
 
 public class Coche implements Serializable {
 
-    Image imagenCoche;
     public Informacion informacion;
     List<Cambio> listaCambios;
 
@@ -16,7 +16,9 @@ public class Coche implements Serializable {
 
         informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros);
         listaCambios = new ArrayList<>();
+
     }
+
 
     public void addCambio(Cambio cambio) {
         listaCambios.add(cambio);
