@@ -7,11 +7,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gurzelai.mantenimientocoches.Coche;
+import com.gurzelai.mantenimientocoches.MostrarCoche;
 import com.gurzelai.mantenimientocoches.R;
 import com.gurzelai.mantenimientocoches.adaptadores.AdaptadorCoche;
 
@@ -54,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, CODE_NUEVO_COCHE);
             }
         });
+
+        lvCoches.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), MostrarCoche.class);
+                intent.putExtra("coche", listaCoches.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -72,5 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializar() {
         listaCoches = new ArrayList<>();
+        listaCoches.add(new Coche("Gorka", "Audi", "A3", "SS 0458 BK", 1999, 355000));
     }
 }

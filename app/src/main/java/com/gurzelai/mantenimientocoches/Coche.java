@@ -20,17 +20,13 @@ public class Coche implements Serializable {
     }
 
     public String getNombre() {
-        if(informacion.nombre != ""){
-            return informacion.getNombre();
-        }
-        else{
-            return informacion.getFabricante() + " - "+informacion.getModelo();
-        }
+        return informacion.getNombre();
     }
 
-    public class Informacion implements Serializable{
+    public class Informacion implements Serializable {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;
+
         public Informacion(String fabricante, String modelo, String nombre, String matricula, int anio, int kilometros) {
             this.fabricante = fabricante;
             this.modelo = modelo;
@@ -43,12 +39,20 @@ public class Coche implements Serializable {
         public String getModelo() {
             return modelo;
         }
+
         public String getFabricante() {
             return fabricante;
         }
+
         public String getNombre() {
             return nombre;
         }
 
+        public int getAnio() {
+            return anio;
+        }
+        public int getKilometros() {
+            return kilometros;
+        }
     }
 }

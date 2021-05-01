@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MantenimientoCoches">
-        <activity android:name=".layout.NuevaReparacion"></activity>
+        <activity
+            android:name=".MostrarCoche"
+            android:parentActivityName=".layout.MainActivity" />
+        <activity android:name=".layout.NuevaReparacion" />
         <activity android:name=".layout.NuevoMantenimiento" />
         <activity android:name=".layout.NuevoCoche" />
         <activity android:name=".layout.MainActivity">
