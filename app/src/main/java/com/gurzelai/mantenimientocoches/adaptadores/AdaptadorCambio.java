@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.R;
 
@@ -51,7 +50,7 @@ public class AdaptadorCambio extends BaseAdapter {
         //Inflamos la vista con nuestro propio layout
         LayoutInflater layoutInflater = LayoutInflater.from(this.context);
 
-        v = layoutInflater.inflate(R.layout.list_item_coche, null);
+        v = layoutInflater.inflate(R.layout.list_item_cambio, null);
         // Valor actual según la posición
 
         Cambio cambioActual = cambios.get(position);

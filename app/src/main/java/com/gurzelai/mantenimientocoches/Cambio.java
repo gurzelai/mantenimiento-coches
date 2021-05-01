@@ -3,7 +3,6 @@ package com.gurzelai.mantenimientocoches;
 import android.media.Image;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Cambio implements Serializable{
 

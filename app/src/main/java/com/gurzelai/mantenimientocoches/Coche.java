@@ -3,27 +3,31 @@ package com.gurzelai.mantenimientocoches;
 import android.media.Image;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Coche implements Serializable {
 
     Image imagenCoche;
     public Informacion informacion;
-    List<Cambio> cambios;
+    List<Cambio> listaCambios;
 
     public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros) {
 
-        //this.imagenCoche = imagenCoche;
         informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros);
-        //cambios = new ArrayList<>();
+        listaCambios = new ArrayList<>();
     }
 
-    public void addCambio(Cambio cambio){
-        cambios.add(cambio);
+    public void addCambio(Cambio cambio) {
+        listaCambios.add(cambio);
     }
 
     public String getNombre() {
         return informacion.getNombre();
+    }
+
+    public List<Cambio> getListaCambios() {
+        return listaCambios;
     }
 
     public static class Informacion implements Serializable {

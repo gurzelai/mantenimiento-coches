@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,22 +14,25 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
+import com.gurzelai.mantenimientocoches.adaptadores.AdaptadorCambio;
 
 public class MostrarCoche extends AppCompatActivity {
 
-    final int CODE_RESULT_CAMBIO=1;
+    final int CODE_RESULT_CAMBIO = 1;
     TextView tvNombre, tvFabricante, tvModelo, tvAnio, tvKilometros;
     FloatingActionButton btnMantenimiento, btnReparacion;
     Coche coche;
+    AdaptadorCambio adaptadorCambio;
+    ListView lvCambios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_coche);
         setTitle("Informacion coche");
+        coche = (Coche) getIntent().getSerializableExtra("coche");
         reconocer();
         setOnClick();
-        coche = (Coche) getIntent().getSerializableExtra("coche");
         asignar();
     }
 
@@ -67,6 +71,9 @@ public class MostrarCoche extends AppCompatActivity {
         tvKilometros = findViewById(R.id.tvKilometros);
         btnMantenimiento = findViewById(R.id.btnMantenimiento);
         btnReparacion = findViewById(R.id.btnReparacion);
+        lvCambios = findViewById(R.id.lvCambios);
+        adaptadorCambio = new AdaptadorCambio(getApplicationContext(), R.layout.list_item_cambio, coche.getListaCambios());
+        lvCambios.setAdapter(adaptadorCambio);
     }
 
     @Override
@@ -75,7 +82,7 @@ public class MostrarCoche extends AppCompatActivity {
         if (requestCode == CODE_RESULT_CAMBIO) {
             if(resultCode == Activity.RESULT_OK){
                 coche.addCambio((Cambio) data.getSerializableExtra("nuevo cambio"));
-                //aqui actualizar el adaptador
+                adaptadorCambio.notifyDataSetChanged();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result

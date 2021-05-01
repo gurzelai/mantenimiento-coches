@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
 import com.gurzelai.mantenimientocoches.adaptadores.AdaptadorCoche;
@@ -81,6 +82,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializar() {
         listaCoches = new ArrayList<>();
-        listaCoches.add(new Coche("Gorka", "Audi", "A3", "SS 0458 BK", 1999, 355000));
+        cargarDatos();
+    }
+
+    private void cargarDatos() {
+        Coche c = new Coche("Gorka", "Audi", "A3", "SS 0458 BK", 1999, 355000);
+        c.addCambio(new Cambio("Rueda pichada", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("b", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("c", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("d", "Jaso", 33, "Ayer", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("e", "Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("f", "Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("g", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        listaCoches.add(c);
     }
 }
