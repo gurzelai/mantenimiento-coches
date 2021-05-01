@@ -21,6 +21,15 @@ public class Coche {
         cambios = new ArrayList<>();
     }
 
+    public String getNombre() {
+        if(informacion.nombre != ""){
+            return informacion.nombre;
+        }
+        else{
+            return informacion.fabricante + " - "+informacion.modelo;
+        }
+    }
+
     public class Informacion {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;

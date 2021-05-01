@@ -2,8 +2,6 @@ package com.gurzelai.mantenimientocoches;
 
 import android.media.Image;
 
-import java.awt.*;
-
 public class Cambio {
 
     enum TipoCambio{
