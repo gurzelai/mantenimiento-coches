@@ -4,7 +4,7 @@ import android.media.Image;
 
 public class Cambio {
 
-    enum TipoCambio{
+    public enum TipoCambio{
         REPARACION, MANTENIMIENTO;
     }
 
@@ -15,10 +15,19 @@ public class Cambio {
     Image factura;
     Image imagenCambio;
 
-    public Cambio(String descripcion, int coste, int fecha, TipoCambio tipoCambio){
+    public Cambio(String descripcion, int coste, int fecha, TipoCambio tipoCambio) {
         this.descripcion = descripcion;
         this.coste = coste;
         this.fecha = fecha;
         this.tipoCambio = tipoCambio;
     }
+
+    public TipoCambio getTipoCambio() {
+        return tipoCambio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
 }
