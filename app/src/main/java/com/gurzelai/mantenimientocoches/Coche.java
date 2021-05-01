@@ -18,6 +18,10 @@ public class Coche implements Serializable {
         //cambios = new ArrayList<>();
     }
 
+    public void addCambio(Cambio cambio){
+        cambios.add(cambio);
+    }
+
     public String getNombre() {
         return informacion.getNombre();
     }

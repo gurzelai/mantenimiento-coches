@@ -2,21 +2,25 @@ package com.gurzelai.mantenimientocoches;
 
 import android.media.Image;
 
-public class Cambio {
+import java.io.Serializable;
+import java.util.Date;
 
-    public enum TipoCambio{
+public class Cambio implements Serializable{
+
+    public enum TipoCambio implements Serializable {
         REPARACION, MANTENIMIENTO;
     }
 
     String descripcion, taller;
     TipoCambio tipoCambio;
     int coste;
-    int fecha;
+    String fecha;
     Image factura;
     Image imagenCambio;
 
-    public Cambio(String descripcion, int coste, int fecha, TipoCambio tipoCambio) {
+    public Cambio(String descripcion, String taller, int coste, String fecha, TipoCambio tipoCambio) {
         this.descripcion = descripcion;
+        this.taller = taller;
         this.coste = coste;
         this.fecha = fecha;
         this.tipoCambio = tipoCambio;
