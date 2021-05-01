@@ -1,5 +1,6 @@
 package com.gurzelai.mantenimientocoches.adaptadores;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ public class AdaptadorCoche extends BaseAdapter {
         return id;
     }
 
+    @SuppressLint("ViewHolder")
     @Override
 
     public View getView(int position, View convertView, ViewGroup viewGroup) {
@@ -57,7 +59,6 @@ public class AdaptadorCoche extends BaseAdapter {
         // Referenciamos el elemento a modificar y lo rellenamos
         TextView nombreCoche = (TextView) v.findViewById(R.id.nombreCoche);
         nombreCoche.setText(cocheActual.getNombre());
-        ImageView imagenCoche = (ImageView) v.findViewById(R.id.imagenCoche);
         //Devolvemos la vista inflada
         return v;
     }

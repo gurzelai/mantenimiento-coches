@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                 android:layout_marginStart="7sp"
                 android:ems="10"
                 android:hint="Coche de la familia"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences"
                 android:paddingStart="15sp"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -79,7 +79,7 @@
                 android:layout_marginStart="7sp"
                 android:ems="10"
                 android:hint="Wolsvagen"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences"
                 android:paddingStart="15sp"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -104,7 +104,7 @@
                 android:layout_marginStart="7sp"
                 android:ems="10"
                 android:hint="Golf MK7"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences"
                 android:paddingStart="15sp"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -129,7 +129,7 @@
                 android:layout_marginStart="7sp"
                 android:ems="10"
                 android:hint="SS 0458 BB"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapCharacters"
                 android:paddingStart="15sp"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -196,7 +196,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnConfirmar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirmar" />
