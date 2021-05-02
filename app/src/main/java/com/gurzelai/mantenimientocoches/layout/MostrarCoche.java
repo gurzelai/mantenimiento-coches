@@ -1,14 +1,17 @@
 package com.gurzelai.mantenimientocoches.layout;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -55,6 +58,25 @@ public class MostrarCoche extends AppCompatActivity {
                 startActivityForResult(intent, CODE_RESULT_CAMBIO);
             }
         });
+        lvCambios.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MostrarCoche.this);
+                builder.setTitle("¿Quieres borrar este cambio?");
+                builder.setMessage("Se borrarán todos los datos");
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        coche.getListaCambios().remove(position);
+                        adaptadorCambio.notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            }
+        });
     }
 
     private void asignar() {
@@ -62,7 +84,7 @@ public class MostrarCoche extends AppCompatActivity {
         tvFabricante.setText(coche.informacion.getFabricante());
         tvModelo.setText(coche.informacion.getModelo());
         tvAnio.setText(String.valueOf((coche.informacion.getAnio()!=-1)? coche.informacion.getAnio() : ""));
-        tvKilometros.setText(String.valueOf((coche.informacion.getKilometros()!=-1)? coche.informacion.getKilometros() : ""));
+        tvKilometros.setText(String.valueOf((coche.informacion.getKilometros()!=-1)? coche.informacion.getKilometros() + " km" : ""));
     }
 
     private void reconocer() {
