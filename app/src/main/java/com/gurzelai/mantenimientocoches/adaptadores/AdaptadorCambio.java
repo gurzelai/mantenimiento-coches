@@ -2,6 +2,7 @@ package com.gurzelai.mantenimientocoches.adaptadores;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,11 +60,16 @@ public class AdaptadorCambio extends BaseAdapter {
         TextView descricionCambio = (TextView) v.findViewById(R.id.descricionCambio);
         descricionCambio.setText(cambioActual.getDescripcion());
         ImageView imagen = v.findViewById(R.id.imagenCambio);
-        if(cambioActual.getTipoCambio() == Cambio.TipoCambio.MANTENIMIENTO){
+        if (cambioActual.getTipoCambio() == Cambio.TipoCambio.MANTENIMIENTO) {
             imagen.setImageResource(R.drawable.mantenimiento);
-        }
-        else{
+        } else {
             imagen.setImageResource(R.drawable.reparacion);
+        }
+        TextView clasificador = (TextView) v.findViewById(R.id.tvClasificador);
+        if (cambioActual.getTipoCambio() == Cambio.TipoCambio.MANTENIMIENTO) {
+            clasificador.setBackgroundColor(Color.RED);
+        } else {
+            clasificador.setBackgroundColor(Color.BLUE);
         }
         //Devolvemos la vista inflada
         return v;

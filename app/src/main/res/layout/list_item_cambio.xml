@@ -3,13 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    android:background="@color/fondo">
+    <TextView
+        android:id="@+id/tvClasificador"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text=" "
+        android:layout_marginLeft="4sp"
+        android:layout_marginRight="8sp"
+        android:layout_marginVertical="19sp"/>
     <ImageView
         android:id="@+id/imagenCambio"
         android:layout_width="40sp"
         android:layout_height="40sp"
         android:layout_gravity="center_vertical"
-        android:layout_margin="25dp"/>
+        android:layout_marginRight="8sp"
+        android:layout_marginTop="25sp"
+        android:layout_marginBottom="25sp"
+        />
 
     <TextView
         android:id="@+id/descricionCambio"
@@ -17,7 +29,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:gravity="center|start"
         android:textColor="#333" />
 </LinearLayout>
