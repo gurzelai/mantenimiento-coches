@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,23 +20,27 @@ public class NuevoCambio extends AppCompatActivity {
 
     Button btnConfirmar;
     EditText etDescripcion, etTaller, etCoste, etFecha, etExplicacion;
+    TextView tvTipoCambio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_cambio);
         reconocer();
-        setOnClick();
+        setTitle("Nuevo cambio");
     }
 
     private void reconocer() {
+        tvTipoCambio = findViewById(R.id.tvTipo);
+        tvTipoCambio.setText(((Cambio.TipoCambio) getIntent().getSerializableExtra("Tipo cambio") == Cambio.TipoCambio.REPARACION) ? "Nueva reparación" : "Nuevo mantenimiento");
         btnConfirmar = findViewById(R.id.btnConfirmar);
         etDescripcion = findViewById(R.id.etDescripcion);
         etExplicacion = findViewById(R.id.etExplicacion);
         etTaller = findViewById(R.id.etTaller);
         etCoste = findViewById(R.id.etCoste);
         etFecha = findViewById(R.id.etFecha);
-        etFecha.setOnClickListener(v-> showDatePickerDialog());
+        etFecha.setOnClickListener(v -> showDatePickerDialog());
+        setOnClick();
     }
 
     public Cambio crearNuevoCambio() {
