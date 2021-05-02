@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarDatos() {
-        Coche c = new Coche("Gorka", "Audi", "A3", "SS 0458 BK", 1999, 355000);
+        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 0458 BK", 1999, 355000);
         c.addCambio(new Cambio("Rueda pichada", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
         c.addCambio(new Cambio("b", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("c", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));

@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
+import com.gurzelai.mantenimientocoches.layout.MainActivity;
 
 import java.util.List;
 
@@ -57,6 +60,8 @@ public class AdaptadorCoche extends BaseAdapter {
         // Referenciamos el elemento a modificar y lo rellenamos
         TextView nombreCoche = (TextView) v.findViewById(R.id.nombreCoche);
         nombreCoche.setText(cocheActual.getNombre());
+        TextView infoCoche = (TextView) v.findViewById(R.id.infoCoche);
+        infoCoche.setText(cocheActual.getInfoCoche());
         //Devolvemos la vista inflada
         return v;
     }

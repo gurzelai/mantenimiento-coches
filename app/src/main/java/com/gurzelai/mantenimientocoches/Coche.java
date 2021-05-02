@@ -32,6 +32,10 @@ public class Coche implements Serializable {
         return listaCambios;
     }
 
+    public String getInfoCoche() {
+        return informacion.getFabricante() +" - " +informacion.getModelo();
+    }
+
     public static class Informacion implements Serializable {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;
