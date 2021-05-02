@@ -15,8 +15,9 @@
         <activity
             android:name=".layout.MostrarCoche"
             android:parentActivityName=".layout.MainActivity" />
-        <activity android:name=".layout.NuevoCambio" />
-        <activity android:name=".layout.NuevoCoche" />
+        <activity android:name=".layout.NuevoCambio"/>
+        <activity android:name=".layout.NuevoCoche"
+            android:parentActivityName=".layout.MainActivity"/>
         <activity android:name=".layout.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,10 +3,14 @@ package com.gurzelai.mantenimientocoches.layout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     final int CODE_NUEVO_COCHE = 1;
 
     ListView lvCoches;
-    FloatingActionButton fabNuevoCoche;
     AdaptadorCoche adaptadorCoche;
 
     List<Coche> listaCoches;
@@ -42,19 +45,10 @@ public class MainActivity extends AppCompatActivity {
         adaptadorCoche = new AdaptadorCoche(this, R.layout.list_item_coche, listaCoches);
         lvCoches = (ListView) findViewById(R.id.lvCoches);
         lvCoches.setAdapter(adaptadorCoche);
-        fabNuevoCoche = findViewById(R.id.fabNuevoCoche);
         onClicks();
     }
 
     private void onClicks() {
-
-        fabNuevoCoche.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NuevoCoche.class);
-                startActivityForResult(intent, CODE_NUEVO_COCHE);
-            }
-        });
 
         lvCoches.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -83,6 +77,24 @@ public class MainActivity extends AppCompatActivity {
     private void inicializar() {
         listaCoches = new ArrayList<>();
         cargarDatos();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.nuevocoche_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nuevoCoche:
+                Intent intent = new Intent(getApplicationContext(), NuevoCoche.class);
+                startActivityForResult(intent, CODE_NUEVO_COCHE);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void cargarDatos() {
