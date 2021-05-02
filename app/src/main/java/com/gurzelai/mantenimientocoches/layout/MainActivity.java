@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), MostrarCoche.class);
                 intent.putExtra("coche", listaCoches.get(position));
-                startActivity(intent);
+                intent.putExtra("posicion", position);
+                startActivityForResult(intent, 100);
             }
         });
         lvCoches.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -85,8 +86,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE_NUEVO_COCHE) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 listaCoches.add((Coche) data.getSerializableExtra("nuevo coche"));
+                adaptadorCoche.notifyDataSetChanged();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+        if (requestCode == 100) {
+            if (resultCode == Activity.RESULT_OK) {
+                listaCoches.remove(data.getIntExtra("coche eliminado", 0));
                 adaptadorCoche.notifyDataSetChanged();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -124,14 +134,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarDatos() {
-        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 0458 BK", 1999, 355000);
-        c.addCambio(new Cambio("Rueda pichada" , "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
-        c.addCambio(new Cambio("b", "as","Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("c", "as","Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("d","as", "Jaso", 33, "Ayer", Cambio.TipoCambio.REPARACION));
-        c.addCambio(new Cambio("e", "as","Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("f", "as","Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("g","as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 2332 BM", 1999, 355000);
+        c.addCambio(new Cambio("Rueda pichada", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("b", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("c", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("d", "as", "Jaso", 33, "Ayer", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("e", "as", "Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("f", "as", "Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("g", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        Coche cf = new Coche("Coche familiar", "Opel", "Zafira", "SS 0458 BK", 2000, 320000);
         listaCoches.add(c);
+        listaCoches.add(cf);
     }
 }

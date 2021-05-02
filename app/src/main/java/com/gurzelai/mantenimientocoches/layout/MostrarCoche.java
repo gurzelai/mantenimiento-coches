@@ -6,17 +6,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.gurzelai.mantenimientocoches.Ajustes;
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
@@ -79,6 +84,42 @@ public class MostrarCoche extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.mostrar_coche_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.darDeBaja:
+
+
+                return true;
+            case R.id.eliminarCoche:
+                AlertDialog.Builder builder = new AlertDialog.Builder(MostrarCoche.this);
+                builder.setTitle("¿Quieres borrar este coche?");
+                builder.setMessage("Se borrarán todos los datos");
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent resultIntent = new Intent(String.valueOf(getApplicationContext()));
+                        resultIntent.putExtra("Coche eliminado", getIntent().getExtras().getInt("posicion"));
+                        setResult(Activity.RESULT_OK, resultIntent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void asignar() {
