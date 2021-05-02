@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.gurzelai.mantenimientocoches.Ajustes;
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
@@ -109,10 +109,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.nuevoCoche:
-                Intent intent = new Intent(getApplicationContext(), NuevoCoche.class);
+                intent = new Intent(getApplicationContext(), NuevoCoche.class);
                 startActivityForResult(intent, CODE_NUEVO_COCHE);
+                return true;
+            case R.id.ajustes:
+                intent = new Intent(getApplicationContext(), Ajustes.class);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

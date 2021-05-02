@@ -3,23 +3,21 @@ package com.gurzelai.mantenimientocoches.layout;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,10 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class NuevoCoche extends AppCompatActivity {
 
@@ -41,6 +36,7 @@ public class NuevoCoche extends AppCompatActivity {
     final int CODIGO_FOTO = 100, CODIGO_GALERIA = 200;
 
     EditText etNombre, etFabricante, etModelo, etAnio, etMatricula, etKilometros;
+    TextView tvKilometros;
     Uri pathImagen;
     ImageView imagenCoche;
     Button btnConfirmar;
@@ -64,7 +60,23 @@ public class NuevoCoche extends AppCompatActivity {
         btnConfirmar = findViewById(R.id.btnConfirmar);
         btnCamara = findViewById(R.id.btnCamara);
         imagenCoche = findViewById(R.id.imagenCoche);
+        tvKilometros = findViewById(R.id.tvKilometros);
+        if (getUnidad().equals(" km")) {
+            tvKilometros.setText("Kilometros");
+        } else {
+            tvKilometros.setText("Millas");
+        }
+        etKilometros.setHint(etKilometros.getHint().toString()+getUnidad());
         setOnClick();
+    }
+
+    public String getUnidad() {
+        SharedPreferences sharedPreferences = getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("KM", true)) {
+            return " km";
+        } else {
+            return " mi";
+        }
     }
 
     private void setOnClick() {
@@ -81,7 +93,6 @@ public class NuevoCoche extends AppCompatActivity {
         btnCamara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 CharSequence[] opciones = {"Tomar foto", "Elegir de galería", "Cancelar"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(NuevoCoche.this);
                 builder.setTitle("Elige una opción:");
