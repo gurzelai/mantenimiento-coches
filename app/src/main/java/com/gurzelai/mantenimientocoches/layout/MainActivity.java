@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nuevoCoche:
                 Intent intent = new Intent(getApplicationContext(), NuevoCoche.class);
                 startActivityForResult(intent, CODE_NUEVO_COCHE);
-                break;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
