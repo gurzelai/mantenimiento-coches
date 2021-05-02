@@ -120,13 +120,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void cargarDatos() {
         Coche c = new Coche("Mi coche", "Audi", "A3", "SS 0458 BK", 1999, 355000);
-        c.addCambio(new Cambio("Rueda pichada", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
-        c.addCambio(new Cambio("b", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("c", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("d", "Jaso", 33, "Ayer", Cambio.TipoCambio.REPARACION));
-        c.addCambio(new Cambio("e", "Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("f", "Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
-        c.addCambio(new Cambio("g", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("Rueda pichada" , "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("b", "as","Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("c", "as","Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("d","as", "Jaso", 33, "Ayer", Cambio.TipoCambio.REPARACION));
+        c.addCambio(new Cambio("e", "as","Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("f", "as","Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
+        c.addCambio(new Cambio("g","as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
         listaCoches.add(c);
     }
 }

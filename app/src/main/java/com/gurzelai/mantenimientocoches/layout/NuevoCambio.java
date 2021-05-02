@@ -15,7 +15,7 @@ import com.gurzelai.mantenimientocoches.R;
 public class NuevoCambio extends AppCompatActivity {
 
     Button btnConfirmar;
-    EditText etDescripcion, etTaller, etCoste, etFecha;
+    EditText etDescripcion, etTaller, etCoste, etFecha, etExplicacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +36,14 @@ public class NuevoCambio extends AppCompatActivity {
     public Cambio crearNuevoCambio() {
         Cambio.TipoCambio tipo_cambio = (Cambio.TipoCambio) getIntent().getSerializableExtra("Tipo cambio");
         String descripcion = etDescripcion.getText().toString();
+        String explicacion = etExplicacion.getText().toString();
         String taller = etTaller.getText().toString();
         String fecha = etFecha.getText().toString();
         int coste = 0;
         if (!etCoste.getText().toString().equals("")) {
             coste = Integer.valueOf(etCoste.getText().toString());
         }
-        return new Cambio(descripcion, taller, coste, fecha, tipo_cambio);
+        return new Cambio(descripcion, explicacion, taller, coste, fecha, tipo_cambio);
     }
 
     private void setOnClick() {
