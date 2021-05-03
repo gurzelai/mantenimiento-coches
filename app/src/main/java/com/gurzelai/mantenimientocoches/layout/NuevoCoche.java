@@ -13,12 +13,16 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -39,7 +43,6 @@ public class NuevoCoche extends AppCompatActivity {
     TextView tvKilometros;
     Uri pathImagen;
     ImageView imagenCoche;
-    Button btnConfirmar;
     FloatingActionButton btnCamara;
     Bitmap b;
 
@@ -47,6 +50,7 @@ public class NuevoCoche extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_coche);
+        setTitle("Nuevo coche");
         reconocer();
     }
 
@@ -57,7 +61,6 @@ public class NuevoCoche extends AppCompatActivity {
         etMatricula = findViewById(R.id.etMatricula);
         etAnio = findViewById(R.id.etAnio);
         etKilometros = findViewById(R.id.etKilometros);
-        btnConfirmar = findViewById(R.id.btnConfirmar);
         btnCamara = findViewById(R.id.btnCamara);
         imagenCoche = findViewById(R.id.imagenCoche);
         tvKilometros = findViewById(R.id.tvKilometros);
@@ -80,16 +83,6 @@ public class NuevoCoche extends AppCompatActivity {
     }
 
     private void setOnClick() {
-        btnConfirmar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Coche coche = crearNuevoCoche();
-                Intent resultIntent = new Intent(String.valueOf(getApplicationContext()));
-                resultIntent.putExtra("nuevo coche", coche);
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
-            }
-        });
         btnCamara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,5 +161,26 @@ public class NuevoCoche extends AppCompatActivity {
 
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.aceptar_cancelar_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.aceptar:
+                Coche coche = crearNuevoCoche();
+                Intent resultIntent = new Intent(String.valueOf(getApplicationContext()));
+                resultIntent.putExtra("nuevo coche", coche);
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

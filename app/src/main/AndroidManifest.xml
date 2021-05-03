@@ -13,16 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MantenimientoCoches">
-        <activity
-            android:name=".Ajustes"
-            android:parentActivityName=".layout.MainActivity" />
-        <activity
-            android:name=".layout.MostrarCoche"
-            android:parentActivityName=".layout.MainActivity" />
+        <activity android:name=".Ajustes" />
+        <activity android:name=".layout.MostrarCoche" />
         <activity android:name=".layout.NuevoCambio" />
-        <activity
-            android:name=".layout.NuevoCoche"
-            android:parentActivityName=".layout.MainActivity" />
+        <activity android:name=".layout.NuevoCoche" />
         <activity android:name=".layout.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
