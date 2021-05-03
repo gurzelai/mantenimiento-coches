@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarDatos() {
-        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 2332 BM", 1999, 355000);
+        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 2332 BM", 1999, 355000, 5.3);
         c.addCambio(new Cambio("Rueda pichada", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
         c.addCambio(new Cambio("b", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("c", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         c.addCambio(new Cambio("e", "as", "Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("f", "as", "Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("g", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
-        Coche cf = new Coche("Coche familiar", "Opel", "Zafira", "SS 0458 BK", 2000, 320000);
+        Coche cf = new Coche("Coche familiar", "Opel", "Zafira", "SS 0458 BK", 2000, 320000, 3.5);
         listaCoches.add(c);
         listaCoches.add(cf);
     }

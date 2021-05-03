@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,15 +22,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.gurzelai.mantenimientocoches.Ajustes;
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
+import com.gurzelai.mantenimientocoches.Repostaje;
 import com.gurzelai.mantenimientocoches.adaptadores.AdaptadorCambio;
 
 public class MostrarCoche extends AppCompatActivity {
 
-    final int CODE_RESULT_CAMBIO = 1;
+    final int CODE_RESULT_CAMBIO = 1, CODE_RESULT_REPOSTAJE = 2;
     TextView tvNombre, tvFabricante, tvModelo, tvAnio, tvKilometros;
     FloatingActionButton btnMantenimiento, btnReparacion;
     Coche coche;
@@ -97,6 +98,10 @@ public class MostrarCoche extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
+            case R.id.repostar:
+                intent = new Intent(getApplicationContext(), NuevoRepostaje.class);
+                startActivityForResult(intent, CODE_RESULT_REPOSTAJE);
+                break;
             case R.id.darDeBaja:
 
 
@@ -157,12 +162,19 @@ public class MostrarCoche extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE_RESULT_CAMBIO) {
-            if(resultCode == Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 coche.addCambio((Cambio) data.getSerializableExtra("nuevo cambio"));
                 adaptadorCambio.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(), "Registrado", Toast.LENGTH_SHORT).show();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
+            }
+        }
+        if (requestCode == CODE_RESULT_REPOSTAJE) {
+            if (resultCode == Activity.RESULT_OK) {
+                coche.addRepostaje((Repostaje) data.getSerializableExtra("nuevo repostaje"));
+                Toast.makeText(getApplicationContext(), "Registrado", Toast.LENGTH_SHORT).show();
             }
         }
     }

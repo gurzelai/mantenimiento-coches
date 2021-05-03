@@ -11,12 +11,13 @@ public class Coche implements Serializable {
 
     public Informacion informacion;
     List<Cambio> listaCambios;
+    List<Repostaje> listaRepostajes;
 
-    public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros) {
+    public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros, double consumo) {
 
-        informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros);
+        informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros, consumo);
         listaCambios = new ArrayList<>();
-
+        listaRepostajes = new ArrayList<>();
     }
 
 
@@ -36,17 +37,23 @@ public class Coche implements Serializable {
         return informacion.getFabricante() +" - " +informacion.getModelo();
     }
 
+    public void addRepostaje(Repostaje nuevo_repostaje) {
+        listaRepostajes.add(nuevo_repostaje);
+    }
+
     public static class Informacion implements Serializable {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;
+        double consumo;
 
-        public Informacion(String fabricante, String modelo, String nombre, String matricula, int anio, int kilometros) {
+        public Informacion(String fabricante, String modelo, String nombre, String matricula, int anio, int kilometros, double consumo) {
             this.fabricante = fabricante;
             this.modelo = modelo;
             this.nombre = nombre;
             this.matricula = matricula;
             this.anio = anio;
             this.kilometros = kilometros;
+            this.consumo = consumo;
         }
 
         public String getModelo() {

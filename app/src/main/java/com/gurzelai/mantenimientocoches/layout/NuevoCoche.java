@@ -39,7 +39,7 @@ public class NuevoCoche extends AppCompatActivity {
     final int PERMISO_CAMARA = 1;
     final int CODIGO_FOTO = 100, CODIGO_GALERIA = 200;
 
-    EditText etNombre, etFabricante, etModelo, etAnio, etMatricula, etKilometros;
+    EditText etNombre, etFabricante, etModelo, etAnio, etMatricula, etKilometros, etConsumo;
     TextView tvKilometros;
     Uri pathImagen;
     ImageView imagenCoche;
@@ -61,6 +61,7 @@ public class NuevoCoche extends AppCompatActivity {
         etMatricula = findViewById(R.id.etMatricula);
         etAnio = findViewById(R.id.etAnio);
         etKilometros = findViewById(R.id.etKilometros);
+        etConsumo = findViewById(R.id.etConsumo);
         btnCamara = findViewById(R.id.btnCamara);
         imagenCoche = findViewById(R.id.imagenCoche);
         tvKilometros = findViewById(R.id.tvKilometros);
@@ -129,6 +130,10 @@ public class NuevoCoche extends AppCompatActivity {
         String modelo = etModelo.getText().toString();
         String matricula = etMatricula.getText().toString();
         int anio = -1, kilometros = -1;
+        double consumo = -1;
+        if (!etConsumo.getText().toString().equals("")) {
+            consumo = Double.parseDouble(etConsumo.getText().toString());
+        }
         if (!etAnio.getText().toString().equals("")) {
             anio = Integer.parseInt(etAnio.getText().toString());
         }
@@ -138,7 +143,7 @@ public class NuevoCoche extends AppCompatActivity {
 
         //Bitmap bitmap = ((BitmapDrawable)imagenCoche.getDrawable()).getBitmap();
 
-        return new Coche(nombre, fabricante, modelo, matricula, anio, kilometros);
+        return new Coche(nombre, fabricante, modelo, matricula, anio, kilometros, consumo);
     }
 
     @Override
