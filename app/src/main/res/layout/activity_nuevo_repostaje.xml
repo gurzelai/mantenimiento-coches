@@ -8,6 +8,130 @@
     tools:context=".layout.NuevoRepostaje">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Fecha"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Cantidad"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Precio €/L"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Coste repostaje"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Forma de pago"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:gravity="left|center"
+                android:text="Gasolinera"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Autorellenar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55sp"
+                    android:layout_weight="1"
+                    android:hint="21/07/2021" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Hoy" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etCantidad"
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:hint="48L"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/etPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:hint="1.12 €/L"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/etCoste"
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:hint="50€"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/etFormaDePago"
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:hint="Tarjeta" />
+
+            <EditText
+                android:id="@+id/etGasolinera"
+                android:layout_width="match_parent"
+                android:layout_height="55sp"
+                android:hint="Eroski" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

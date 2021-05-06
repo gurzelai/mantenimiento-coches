@@ -1,6 +1,8 @@
 package com.gurzelai.mantenimientocoches;
 
-public class Repostaje {
+import java.io.Serializable;
+
+public class Repostaje implements Serializable {
 
     String fecha;
     double precio, cantidad, costeRepostaje;

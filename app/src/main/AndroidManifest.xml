@@ -3,7 +3,6 @@
     package="com.gurzelai.mantenimientocoches">
 
     <uses-feature android:name="android.hardware.camera" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -17,6 +16,7 @@
         <activity android:name=".layout.MostrarCoche" />
         <activity android:name=".layout.NuevoCambio" />
         <activity android:name=".layout.NuevoCoche" />
+        <activity android:name=".layout.NuevoRepostaje" />
         <activity android:name=".layout.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
