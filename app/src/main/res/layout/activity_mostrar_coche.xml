@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="15dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imagenCoche"
@@ -30,47 +30,55 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:gravity="left|center"
                 android:text="Nombre"
                 android:textColor="#000000"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:gravity="left|center"
                 android:text="Fabricante"
                 android:textColor="#000000"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:gravity="left|center"
                 android:text="Modelo"
                 android:textColor="#000000"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:gravity="left|center"
                 android:text="Año"
                 android:textColor="#000000"
-                android:textSize="25sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:gravity="left|center"
                 android:text="Kilometros"
                 android:textColor="#000000"
-                android:textSize="25sp"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:gravity="left|center"
+                android:text="Matricula"
+                android:textColor="#000000"
+                android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -84,47 +92,50 @@
             <TextView
                 android:id="@+id/tvNombre"
                 android:layout_width="wrap_content"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="25sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvFabricante"
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="25sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvModelo"
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="25sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvAnio"
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="25sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvKilometros"
                 android:layout_width="match_parent"
-                android:layout_height="55sp"
+                android:layout_height="40sp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="25sp" />
-
+                android:textSize="22sp" />
+            <TextView
+                android:id="@+id/tvMatricula"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="22sp" />
         </LinearLayout>
-
-
-
     </LinearLayout>
 
     <ListView

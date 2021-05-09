@@ -83,14 +83,18 @@
 
                 <EditText
                     android:id="@+id/etFecha"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:focusable="false"
+                    android:clickable="false"
                     android:layout_height="55sp"
                     android:layout_weight="1"
                     android:hint="21/07/2021" />
 
                 <Button
+                    android:id="@+id/hoy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColorHint="@color/black"
                     android:hint="Hoy" />
             </LinearLayout>
 
@@ -98,21 +102,21 @@
                 android:id="@+id/etCantidad"
                 android:layout_width="match_parent"
                 android:layout_height="55sp"
-                android:hint="48L"
+                android:hint="16.5"
                 android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/etPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="55sp"
-                android:hint="1.12 €/L"
+                android:hint="1.21"
                 android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/etCoste"
                 android:layout_width="match_parent"
                 android:layout_height="55sp"
-                android:hint="50€"
+                android:hint="20"
                 android:inputType="numberDecimal" />
 
             <EditText
@@ -125,7 +129,7 @@
                 android:id="@+id/etGasolinera"
                 android:layout_width="match_parent"
                 android:layout_height="55sp"
-                android:hint="Eroski" />
+                android:hint="Repsol" />
 
         </LinearLayout>
 

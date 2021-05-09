@@ -1,8 +1,5 @@
 package com.gurzelai.mantenimientocoches;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +10,16 @@ public class Coche implements Serializable {
     List<Cambio> listaCambios;
     List<Repostaje> listaRepostajes;
 
-    public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros, double consumo) {
+    public Coche(String nombre, String fabricante, String modelo, String matricula, int anio, int kilometros) {
 
-        informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros, consumo);
+        informacion = new Informacion(fabricante, modelo, nombre, matricula, anio, kilometros);
         listaCambios = new ArrayList<>();
         listaRepostajes = new ArrayList<>();
     }
 
 
     public void addCambio(Cambio cambio) {
-        listaCambios.add(cambio);
+        listaCambios.add(0, cambio);
     }
 
     public String getNombre() {
@@ -34,26 +31,24 @@ public class Coche implements Serializable {
     }
 
     public String getInfoCoche() {
-        return informacion.getFabricante() +" - " +informacion.getModelo();
+        return informacion.getFabricante() +((!informacion.getModelo().equals(""))?" - "+informacion.getModelo() : "");
     }
 
     public void addRepostaje(Repostaje nuevo_repostaje) {
-        listaRepostajes.add(nuevo_repostaje);
+        listaRepostajes.add(0,nuevo_repostaje);
     }
 
     public static class Informacion implements Serializable {
         String fabricante, modelo, nombre, matricula;
         int anio, kilometros;
-        double consumo;
 
-        public Informacion(String fabricante, String modelo, String nombre, String matricula, int anio, int kilometros, double consumo) {
+        public Informacion(String fabricante, String modelo, String nombre, String matricula, int anio, int kilometros) {
             this.fabricante = fabricante;
             this.modelo = modelo;
             this.nombre = nombre;
             this.matricula = matricula;
             this.anio = anio;
             this.kilometros = kilometros;
-            this.consumo = consumo;
         }
 
         public String getModelo() {
@@ -73,6 +68,10 @@ public class Coche implements Serializable {
         }
         public int getKilometros() {
             return kilometros;
+        }
+
+        public String getMatricula() {
+            return matricula;
         }
     }
 }

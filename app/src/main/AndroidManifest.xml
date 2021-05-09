@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MantenimientoCoches">
-        <activity android:name=".Ajustes" />
         <activity android:name=".layout.MostrarCoche" />
         <activity android:name=".layout.NuevoCambio" />
         <activity android:name=".layout.NuevoCoche" />

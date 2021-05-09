@@ -31,7 +31,7 @@ import com.gurzelai.mantenimientocoches.adaptadores.AdaptadorCambio;
 public class MostrarCoche extends AppCompatActivity {
 
     final int CODE_RESULT_CAMBIO = 1, CODE_RESULT_REPOSTAJE = 2;
-    TextView tvNombre, tvFabricante, tvModelo, tvAnio, tvKilometros;
+    TextView tvNombre, tvFabricante, tvModelo, tvAnio, tvKilometros,tvMatricula;
     FloatingActionButton btnMantenimiento, btnReparacion;
     Coche coche;
     AdaptadorCambio adaptadorCambio;
@@ -42,7 +42,7 @@ public class MostrarCoche extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_coche);
-        setTitle("Informacion coche");
+        setTitle("Informacion del coche");
         coche = (Coche) getIntent().getSerializableExtra("coche");
         reconocer();
         setOnClick();
@@ -102,10 +102,6 @@ public class MostrarCoche extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), NuevoRepostaje.class);
                 startActivityForResult(intent, CODE_RESULT_REPOSTAJE);
                 break;
-            case R.id.darDeBaja:
-
-
-                return true;
             case R.id.eliminarCoche:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MostrarCoche.this);
                 builder.setTitle("¿Quieres borrar este coche?");
@@ -132,16 +128,8 @@ public class MostrarCoche extends AppCompatActivity {
         tvFabricante.setText(coche.informacion.getFabricante());
         tvModelo.setText(coche.informacion.getModelo());
         tvAnio.setText(String.valueOf((coche.informacion.getAnio() != -1) ? coche.informacion.getAnio() : ""));
-        tvKilometros.setText(String.valueOf((coche.informacion.getKilometros() != -1) ? coche.informacion.getKilometros() + getUnidad() : ""));
-    }
-
-    public String getUnidad() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Ajustes", Context.MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("KM", true)) {
-            return " km";
-        } else {
-            return " mi";
-        }
+        tvKilometros.setText(String.valueOf((coche.informacion.getKilometros() != -1) ? coche.informacion.getKilometros() : ""));
+        tvMatricula.setText(coche.informacion.getMatricula());
     }
 
     private void reconocer() {
@@ -150,6 +138,7 @@ public class MostrarCoche extends AppCompatActivity {
         tvModelo = findViewById(R.id.tvModelo);
         tvAnio = findViewById(R.id.tvAnio);
         tvKilometros = findViewById(R.id.tvKilometros);
+        tvMatricula = findViewById(R.id.tvMatricula);
         btnMantenimiento = findViewById(R.id.btnMantenimiento);
         btnReparacion = findViewById(R.id.btnReparacion);
         lvCambios = findViewById(R.id.lvCambios);

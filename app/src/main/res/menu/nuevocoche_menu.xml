@@ -6,10 +6,15 @@
         android:id="@+id/nuevoCoche"
         android:icon="@drawable/ic_baseline_add_24"
         android:title="Nuevo coche"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
+
     <item
-        android:id="@+id/ajustes"
+        android:id="@+id/comparte"
         android:icon="@drawable/ic_baseline_build_24"
-        android:title="Ajustes"
-        app:showAsAction="always"/>
+        android:title="Comparte" />
+
+    <item
+        android:id="@+id/playstore"
+        android:icon="@drawable/ic_baseline_build_24"
+        android:title="Play Store" />
 </menu>

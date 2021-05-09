@@ -10,13 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.gurzelai.mantenimientocoches.Ajustes;
 import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.Coche;
 import com.gurzelai.mantenimientocoches.R;
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 listaCoches.add((Coche) data.getSerializableExtra("nuevo coche"));
                 adaptadorCoche.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(), "Registrado", Toast.LENGTH_SHORT).show();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (requestCode == 100) {
             if (resultCode == Activity.RESULT_OK) {
-                listaCoches.remove(data.getIntExtra("coche eliminado", 0));
+                listaCoches.remove(data.getIntExtra("Coche eliminado", 0));
                 adaptadorCoche.notifyDataSetChanged();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
@@ -125,16 +126,18 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), NuevoCoche.class);
                 startActivityForResult(intent, CODE_NUEVO_COCHE);
                 return true;
-            case R.id.ajustes:
-                intent = new Intent(getApplicationContext(), Ajustes.class);
-                startActivity(intent);
+            case R.id.playstore:
+
+                return true;
+            case R.id.comparte:
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void cargarDatos() {
-        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 2332 BM", 1999, 355000, 5.3);
+        Coche c = new Coche("Mi coche", "Audi", "A3", "SS 2332 BM", 1999, 355000);
         c.addCambio(new Cambio("Rueda pichada", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
         c.addCambio(new Cambio("b", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("c", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         c.addCambio(new Cambio("e", "as", "Jaso", 23, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("f", "as", "Jaso", 50, "Hoy", Cambio.TipoCambio.MANTENIMIENTO));
         c.addCambio(new Cambio("g", "as", "Jaso", 10, "Hoy", Cambio.TipoCambio.REPARACION));
-        Coche cf = new Coche("Coche familiar", "Opel", "Zafira", "SS 0458 BK", 2000, 320000, 3.5);
+        Coche cf = new Coche("Coche familiar", "Opel", "Zafira", "SS 0458 BK", 2000, 320000);
         listaCoches.add(c);
         listaCoches.add(cf);
     }

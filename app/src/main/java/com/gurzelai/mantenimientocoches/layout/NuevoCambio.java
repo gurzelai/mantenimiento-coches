@@ -16,6 +16,9 @@ import com.gurzelai.mantenimientocoches.Cambio;
 import com.gurzelai.mantenimientocoches.DatePickerFragment;
 import com.gurzelai.mantenimientocoches.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NuevoCambio extends AppCompatActivity {
 
     Button btnConfirmar;
@@ -27,7 +30,7 @@ public class NuevoCambio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_cambio);
         reconocer();
-        setTitle("Nuevo cambio");
+        setTitle("Nuevo cambio - Tipo: " + ((getIntent().getSerializableExtra("Tipo cambio") == Cambio.TipoCambio.REPARACION) ? "Reparación" : "Mantenimiento"));
     }
 
     private void reconocer() {
